@@ -1,0 +1,13 @@
+MVC 
+
+M:model
+V:View
+C:Controller
+
+Model: this part of the application manages how tha data is to be read by and written to the database
+
+View: this part of the application focuses on the presentation layer is how the information is to be 
+presented to the client
+
+Controller:  this is the real brain of the application it decides how the user intract with the system
+, controlling waht data is accessed from the model and hich part of view will present it

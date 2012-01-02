@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @post.name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @post.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @post.content %>
+</p>
+
+<% @comment_within_post.each do |i| %>
+    this comment <b><%=i.body  %></b> given by <b><%= i.commenter %></b> <br>
+
+    <% end %>
+
+=============================================================================================================
+<%= form_for @post, :url=>{:action =>:create_comment}, :html => { :method => "post" } do|f| %>
+    <%= fields_for (@comment) do |c| %>
+        userName:   <%= c.text_field :commenter %>
+        comment:<%= c.text_field :body %>
+        <%=c.submit "comment" ,:id=>"comment_button" %>
+    <% end %>
+
+<% end %>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
